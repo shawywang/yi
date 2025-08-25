@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<HwTheme>
+    <title>myfont</title>
+    <title-cn>myfont</title-cn>
+    <screen>FHD+</screen>
+    <version>1.0.0</version>
+    <font>myfont</font>
+    <font-cn>myfont</font-cn>
+    <type>font</type>
+</HwTheme>

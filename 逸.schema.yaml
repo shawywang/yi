@@ -1,0 +1,110 @@
+# Rime schema
+# encoding: utf-8
+
+schema:
+  schema_id: 逸
+  name: 逸码V20
+  version: "1.0"
+  author:
+    - 小泥巴
+  description: |
+    26码元单字顶功纯形输入方案
+  dependencies:
+    - pinyin_simp
+    - radical_pinyin #部首拼音
+
+switches:
+  - name: ascii_mode
+    reset: 0
+    states: [ 中文, 西文 ]
+  - name: full_shape
+    states: [ 半角, 全角 ]
+  - name: simplification
+    states: [ 繁体, 简体 ]
+  - name: ascii_punct
+    states: [ 。，, ．， ]
+  - name: spelling
+    reset: 1
+    states: [ "编码", "拆分" ]
+
+engine:
+  processors:
+    - ascii_composer
+    - recognizer
+    - key_binder
+    - speller
+    - punctuator
+    - selector
+    - navigator
+    - express_editor
+  segmentors:
+    - ascii_segmentor
+    - matcher
+    - abc_segmentor
+    - affix_segmentor@pinyin_lookup
+    - affix_segmentor@radical_pinyin_lookup
+    - punct_segmentor
+    - fallback_segmentor
+  translators:
+    - punct_translator
+    - table_translator
+    - script_translator@pinyin_lookup
+    - script_translator@radical_pinyin_lookup
+  filters:
+    - uniquifier
+    - reverse_lookup_filter@radical_pinyin_reverse_lookup
+    - reverse_lookup_filter@pinyin_reverse_lookup
+    - simplifier@spelling
+
+speller:
+  auto_select: true
+
+translator:
+  dictionary: 逸
+  enable_completion: true
+  # enable_encoder: true
+
+pinyin_lookup:
+  tag: pinyin_lookup
+  dictionary: pinyin_simp
+  prefix: "i"
+  tips: "〔拼音反查〕"
+
+pinyin_reverse_lookup:
+  tags: [ pinyin_lookup ]
+  overwrite_comment: true
+  dictionary: 逸
+
+radical_pinyin_lookup:
+  tag: radical_pinyin_lookup
+  dictionary: radical_pinyin
+  prefix: "u"
+  tips: "〔部首反查〕"
+
+radical_pinyin_reverse_lookup:
+  tags: [ radical_pinyin_lookup ]
+  overwrite_comment: true
+  dictionary: 逸
+
+spelling:
+  option_name: spelling
+  opencc_config: yi_spelling.json
+  tags: [ pinyin_lookup,radical_pinyin_lookup ]
+  tips: all
+  show_in_comment: true
+  comment_format:
+    - "xform/$/〕/"
+    - "xform/^/〔/"
+
+punctuator:
+  import_preset: symbols
+
+key_binder:
+  bindings:
+    - { when: paging, accept: minus, send: Page_Up }
+    - { when: has_menu, accept: equal, send: Page_Down }
+
+recognizer:
+  patterns:
+    radical_pinyin_lookup: "^u[a-z]*'?$"
+    pinyin_lookup: "^i[a-z]*'?$"

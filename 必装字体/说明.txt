@@ -1,0 +1,32 @@
+华为手机安装字体：
+    1.工作空间新建：
+        fonts/
+        preview/
+        icons
+        description.xml
+    2.字体文件放进fonts里
+    3.重命名字体为DroidSansChinese.ttf
+    4.选中 字根字体/下的所有文件，压缩为“字根字体.hwt”
+    5.连接电脑：此电脑\MNA-AL00\内部存储\Huawei\Themes
+    6.压缩包移动到Themes/下
+    7.打开“主题”app，我的-字体，往下滑，安装
+
+description.xml
+---------------
+<?xml version="1.0" encoding="UTF-8"?>
+<HwTheme>
+    <title>myfont</title>
+    <title-cn>myfont</title-cn>
+    <screen>FHD+</screen>
+    <version>1.0.0</version>
+    <font>myfont</font>
+    <font-cn>myfont</font-cn>
+    <type>font</type>
+</HwTheme>
+
+失败告终
+
+
+
+================
+小狼毫候选框显示字根字

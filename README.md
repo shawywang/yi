@@ -1,3 +1,4 @@
+逸码非官方仓，同时适配macOS鼠须管、windows小狼毫、android同文
 ## 安装：
 
     同文：https://github.com/osfans/trime/releases/tag/nightly

@@ -29,18 +29,18 @@
 逸码官网：
 https://yb6b.github.io/yima/
 https://gitee.com/peng52050/chen_yi
-https://github.com/Peng52050/yima
-顶功集萃：https://ding.tansongchen.com/tutorial/collection/second/lxsy
-知乎：https://www.zhihu.com/question/376022178/answer/3165035735
-安装字根字体：http://98wb.ysepan.com/，其中98WB-V.otf可覆盖100%的逸码字根，必装
-天珩全字库：http://cheonhyeong.com/Simplified/download.html
+https://github.com/Peng52050/yima  
+顶功集萃：https://ding.tansongchen.com/tutorial/collection/second/lxsy  
+知乎：https://www.zhihu.com/question/376022178/answer/3165035735  
+安装字根字体：http://98wb.ysepan.com/  ；其中98WB-U.otf、98WB-V.otf可覆盖100%的逸码字根，必装  
+天珩全字库：http://cheonhyeong.com/Simplified/download.html  
 主题文件：https://github.com/osfans/trime/wiki/trime.yaml#trime-default-style-settings
 
-## 用户文件夹介绍：
+## rime小白，用户文件夹介绍：
 
 ```yaml
 #build/*，内容可以删，重新部署自动生成
-#  *.userdb/*，方案产生的数据，内容可以删，重新部署自动生成
+# *.userdb/*，方案产生的数据，内容可以删，重新部署自动生成
 #default.custom.yaml：
 #----------
 customization:

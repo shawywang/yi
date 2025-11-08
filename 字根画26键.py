@@ -38,7 +38,6 @@ class Handle:
                 x_offset += (key_width + padding)
             y_offset += (key_height + padding)
 
-        # 宽1439，高484
         # 加备注文字
         n_x = round(key_width * 1.2) + 7 * (key_width + padding)
         n_y = 2 * (key_height + padding)

@@ -34,11 +34,14 @@ class Yi:
         self.di[key] = value
 
     def print_di(self):
+        total: int = 0
         for k, vs in self.di.items():
             print("")
             print(f"{k} {len(vs):02d} -> ", end='')
             for v in vs:
                 print(v, end='')
+            total += len(vs)
+        print(f"\n\n字根总数：{total}")
 
     def print_song(self):
         song: Dict[str, List[str]] = {}

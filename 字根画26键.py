@@ -13,23 +13,25 @@ class Handle:
         key_width = 167
         key_height = 232
         padding = 10  # 键之间的距离：宽和高
+        lr: int = 32  # 画布左、右空白像素
+        ud: int = 155  # 画布上、下空白像素
         keyboard_layout = [
             list("qwertyuiop"),
             list("asdfghjkl"),
             list("zxcvbnm"),
         ]
         # 键盘底图
-        keyboard_width = len(keyboard_layout[0]) * (key_width + padding) - padding
-        keyboard_height = len(keyboard_layout) * (key_height + padding) - padding
-        keyboard_image = Image.new("RGB", (keyboard_width, keyboard_height), "white")
+        keyboard_width = len(keyboard_layout[0]) * (key_width + padding) - padding + lr * 2  # 左右各加32个像素的空白
+        keyboard_height = len(keyboard_layout) * (key_height + padding) - padding + ud * 2  # 上下各加155个像素，以适配宽/高=1920/1080
+        keyboard_image = Image.new("RGB", (keyboard_width, keyboard_height), (255, 255, 255))
         draw = ImageDraw.Draw(keyboard_image)
         # 加载单键文件
         letter_images = {letter: Image.open(f"C:\\Users\\wangxiao\\Downloads\\{letter}.webp") for letter in key_images}
-        y_offset = 0
+        y_offset = ud  # 上方有155像素的空白
         x_add: Dict[int, int] = {  # 不同行起始位置偏移量
-            0: 0,
-            1: round(key_width * 0.4),
-            2: round(key_width * 1.2)
+            0: 0 + lr,
+            1: round(key_width * 0.4) + lr,
+            2: round(key_width * 1.2) + lr,
         }
         for n, row in enumerate(keyboard_layout):
             x_offset = x_add[n]
@@ -39,15 +41,15 @@ class Handle:
             y_offset += (key_height + padding)
 
         # 加备注文字
-        n_x = round(key_width * 1.2) + 7 * (key_width + padding)
-        n_y = 2 * (key_height + padding)
+        n_x = round(key_width * 1.2) + lr
+        n_y = 3 * (key_height + padding) + ud
         n_font1 = ImageFont.truetype(font=r"C:\Users\wangxiao\AppData\Local\Microsoft\Windows\Fonts\华文楷体粗.ttf", size=25)
         n_font2 = ImageFont.truetype(font=r"C:\Users\wangxiao\AppData\Local\Microsoft\Windows\Fonts\IntelOneMono-Bold.ttf", size=20)
 
-        draw.text(xy=(n_x, n_y), text="注：因无字根字\n红色“落”应去掉“各”、\n“释”应去掉右边；\n红色“一丨丶丿”为首笔", fill="black", font=n_font1)
-        draw.text(xy=(n_x, n_y + 120), text="github.com/shawywang/yi", fill=(0, 0, 0), font=n_font2)
-        draw.text(xy=(n_x, n_y + 140), text="or: gitee.com/shawywang/yi", fill=(95, 95, 95), font=n_font2)
-        draw.text(xy=(n_x, n_y + 160), text="QQ: 790835977", fill=(0, 0, 0), font=n_font2)
+        draw.text(xy=(lr, ud - 35), text="逸码v20：连续二码纯形顶功输入方案", fill=(0, 0, 0), font=n_font1)
+        draw.text(xy=(lr + 438, ud - 35), text="https://yb6b.github.io/yima", fill=(0, 0, 0), font=n_font2)
+        draw.text(xy=(n_x, n_y), text="注：因无字根字，红色“落”应去掉“各”、“释”应去掉右边；红色“一丨丶丿”为首笔", fill=(0, 0, 0), font=n_font1)
+        draw.text(xy=(n_x, n_y + 30), text="https://github.com/shawywang/yi.git or: https://gitee.com/shawywang/yi.git QQ: 790835977", fill=(0, 0, 0), font=n_font2)
 
         # 保存
         palette_img = Image.new("P", (1, 1))  # 调色板

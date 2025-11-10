@@ -20,7 +20,7 @@ class Handle:
             list("asdfghjkl"),
             list("zxcvbnm"),
         ]
-        # 键盘底图
+        # 键盘底图，宽1824，高1026
         keyboard_width = len(keyboard_layout[0]) * (key_width + padding) - padding + lr * 2  # 左右各加32个像素的空白
         keyboard_height = len(keyboard_layout) * (key_height + padding) - padding + ud * 2  # 上下各加155个像素，以适配宽/高=1920/1080
         keyboard_image = Image.new("RGB", (keyboard_width, keyboard_height), (255, 255, 255))

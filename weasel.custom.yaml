@@ -7,7 +7,7 @@ customization:
 patch:
   "style/candidate_format": "%c.%@"
   "style/color_scheme": aqua〔方案選單〕
-  "style/horizontal": false
+  "style/horizontal": true
   "style/comment_font_face": "98WB-V"
   "comment_font_point": 14
   "style/display_tray_icon": false

@@ -12,10 +12,10 @@ class Handle:
     def draw26(self):
         key_width = 167
         key_height = 232
-        padding_h = 2  # 键之间的距离：水平方向
+        padding_h = 1  # 键之间的距离：水平方向
         padding_v = 10  # 键之间的距离：竖直方向
         lr: int = 3  # 画布左、右空白像素
-        ud: int = 118.5  # 画布上、下空白像素
+        ud: int = 116  # 画布上、下空白像素，116
         keyboard_layout = [
             list("qwertyuiop"),
             list("asdfghjkl"),
@@ -49,7 +49,7 @@ class Handle:
 
         draw.text(xy=(lr, ud - 35), text="逸码v20：连续二码纯形顶功输入方案", fill=(0, 0, 0), font=n_font1)
         draw.text(xy=(lr + 438, ud - 35), text="https://yb6b.github.io/yima", fill=(0, 0, 0), font=n_font2)
-        draw.text(xy=(n_x, n_y), text="注：因无字根字，红色“落”应去掉“各”、“释”应去掉右边；红色“一丨丶丿”为首笔；“提”视为横；", fill=(0, 0, 0), font=n_font1)
+        draw.text(xy=(n_x, n_y), text="注：因无字根字，红色“落”应去掉“各”、“释”应去掉右边；红色“一丨丶丿”前2码用；“提”视为横；", fill=(0, 0, 0), font=n_font1)
         draw.text(xy=(n_x, n_y + 30), text="https://github.com/shawywang/yi.git or: https://gitee.com/shawywang/yi.git QQ: 790835977", fill=(0, 0, 0), font=n_font2)
 
         # 保存

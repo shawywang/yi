@@ -72,6 +72,14 @@ class Handle:
             format="WEBP",
             quality=80,
         )
+        fixed_image.save(
+            fp="C:\\Users\\wangxiao\\Downloads\\字根图（PIL生成）.png",
+            optimize=True,
+            compress_level=5,
+            dpi=(72, 72),
+            format="PNG",
+            quality=80,
+        )
 
 
 def main():

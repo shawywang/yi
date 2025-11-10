@@ -12,17 +12,18 @@ class Handle:
     def draw26(self):
         key_width = 167
         key_height = 232
-        padding = 10  # 键之间的距离：宽和高
-        lr: int = 32  # 画布左、右空白像素
-        ud: int = 155  # 画布上、下空白像素
+        padding_h = 2  # 键之间的距离：水平方向
+        padding_v = 10  # 键之间的距离：竖直方向
+        lr: int = 3  # 画布左、右空白像素
+        ud: int = 118.5  # 画布上、下空白像素
         keyboard_layout = [
             list("qwertyuiop"),
             list("asdfghjkl"),
             list("zxcvbnm"),
         ]
-        # 键盘底图，宽1824，高1026
-        keyboard_width = len(keyboard_layout[0]) * (key_width + padding) - padding + lr * 2  # 左右各加32个像素的空白
-        keyboard_height = len(keyboard_layout) * (key_height + padding) - padding + ud * 2  # 上下各加155个像素，以适配宽/高=1920/1080
+        # 键盘底图，宽1703，高958
+        keyboard_width = len(keyboard_layout[0]) * (key_width + padding_h) - padding_h + lr * 2  # 左右空白
+        keyboard_height = len(keyboard_layout) * (key_height + padding_v) - padding_v + ud * 2  # 上下空白，以适配宽/高=1920/1080
         keyboard_image = Image.new("RGB", (keyboard_width, keyboard_height), (255, 255, 255))
         draw = ImageDraw.Draw(keyboard_image)
         # 加载单键文件
@@ -37,18 +38,18 @@ class Handle:
             x_offset = x_add[n]
             for l in row:
                 keyboard_image.paste(letter_images[l], (x_offset, y_offset))
-                x_offset += (key_width + padding)
-            y_offset += (key_height + padding)
+                x_offset += (key_width + padding_h)
+            y_offset += (key_height + padding_v)
 
         # 加备注文字
         n_x = round(key_width * 1.2) + lr
-        n_y = 3 * (key_height + padding) + ud
+        n_y = 3 * (key_height + padding_v) + ud
         n_font1 = ImageFont.truetype(font=r"C:\Users\wangxiao\AppData\Local\Microsoft\Windows\Fonts\华文楷体粗.ttf", size=25)
         n_font2 = ImageFont.truetype(font=r"C:\Users\wangxiao\AppData\Local\Microsoft\Windows\Fonts\IntelOneMono-Bold.ttf", size=20)
 
         draw.text(xy=(lr, ud - 35), text="逸码v20：连续二码纯形顶功输入方案", fill=(0, 0, 0), font=n_font1)
         draw.text(xy=(lr + 438, ud - 35), text="https://yb6b.github.io/yima", fill=(0, 0, 0), font=n_font2)
-        draw.text(xy=(n_x, n_y), text="注：因无字根字，红色“落”应去掉“各”、“释”应去掉右边；红色“一丨丶丿”为首笔", fill=(0, 0, 0), font=n_font1)
+        draw.text(xy=(n_x, n_y), text="注：因无字根字，红色“落”应去掉“各”、“释”应去掉右边；红色“一丨丶丿”为首笔；“提”视为横；", fill=(0, 0, 0), font=n_font1)
         draw.text(xy=(n_x, n_y + 30), text="https://github.com/shawywang/yi.git or: https://gitee.com/shawywang/yi.git QQ: 790835977", fill=(0, 0, 0), font=n_font2)
 
         # 保存

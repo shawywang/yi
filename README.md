@@ -28,8 +28,8 @@
 
 〔方案選單〕
 逸码官网：
-https://yb6b.github.io/yima/
-https://gitee.com/peng52050/chen_yi
+https://yb6b.github.io/yima/  
+https://gitee.com/peng52050/chen_yi  
 https://github.com/Peng52050/yima  
 顶功集萃：https://ding.tansongchen.com/tutorial/collection/second/lxsy  
 知乎：https://www.zhihu.com/question/376022178/answer/3165035735  

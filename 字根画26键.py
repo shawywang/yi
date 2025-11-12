@@ -5,6 +5,10 @@ from PIL import Image, ImageDraw, ImageFont
 key_images: str = "qwertyuiopasdfghjklzxcvbnm"
 
 
+# 六寸相纸（无白边打印）：152*102毫米，打印像素：1685*1131pix
+# 相框可装尺寸：151*111毫米，能装下6寸相纸
+# 显示屏16:9，照片像素应为：1685*948pix，上下空白像素应为116
+
 class Handle:
     def __init__(self):
         pass
@@ -12,10 +16,10 @@ class Handle:
     def draw26(self):
         key_width = 167
         key_height = 232
-        padding_h = 1  # 键之间的距离：水平方向
-        padding_v = 10  # 键之间的距离：竖直方向
-        lr: int = 3  # 画布左、右空白像素
-        ud: int = 116  # 画布上、下空白像素，116
+        padding_h = -2  # 键之间的距离：水平方向
+        padding_v = 15  # 键之间的距离：竖直方向
+        lr: int = 30  # 画布左、右空白像素
+        ud: int = 211  # 画布上、下空白像素
         keyboard_layout = [
             list("qwertyuiop"),
             list("asdfghjkl"),
@@ -58,6 +62,7 @@ class Handle:
             [
                 0, 0, 0,  # 黑色
                 255, 0, 0,  # 红色
+                130, 230, 255,  # 蓝色
                 255, 255, 255,  # 白色
                 255, 204, 153,  # 浅橙色
                 95, 95, 95,  # 灰色

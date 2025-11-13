@@ -112,19 +112,20 @@ class Handle:
         draw.text(xy=(b_x, b_y - 90), text=back_car, fill=back_color, font=back_font)
         # 绘制长按符号
         long_font = ImageFont.truetype(font=r"C:\Windows\Fonts\msyhbd.ttc", size=28)  # r"C:\Windows\Fonts\dengb.ttf"
+        long_font2 = ImageFont.truetype(font=r"C:\Windows\Fonts\msyhbd.ttc", size=40)
         if back_car in num_key:  # 数字置顶
             draw.text(xy=(round(width / 2) - 7, -6), text=symbol, fill=(255, 0, 0), font=long_font)
         elif back_car in "AXCV":  # 汉字：全选复制粘贴剪切
             draw.text(xy=(width - 58, height - 30), text=symbol, fill=(255, 0, 0), font=long_font)
-        elif back_car in "FKL":  # 多个符号
-            draw.text(xy=(width - 45, height - 35), text=symbol, fill=(255, 0, 0), font=long_font)
         elif back_car in "GS":  # 多个符号，特殊
             draw.text(xy=(width - 80, height - 33), text=symbol, fill=(255, 0, 0), font=long_font)
+        elif back_car in "FKL":  # 多个符号
+            draw.text(xy=(width - 60, height - 45), text=symbol, fill=(255, 0, 0), font=long_font2)
         else:  # 单个符号
-            draw.text(xy=(width - 28, height - 37), text=symbol, fill=(255, 0, 0), font=long_font)
+            draw.text(xy=(width - 43, height - 47), text=symbol, fill=(255, 0, 0), font=long_font2)
         # 绘制下滑符号
         if swipe_down != "":
-            draw.text(xy=(7, height - 35), text=swipe_down, fill=(130, 230, 255), font=long_font)
+            draw.text(xy=(7, height - 50), text=swipe_down, fill=(26, 170, 47), font=long_font2)
 
         # 绘制字根
         c_color = "black"
@@ -176,7 +177,7 @@ class Handle:
             [
                 0, 0, 0,  # 黑色
                 255, 0, 0,  # 红色
-                130, 230, 255,  # 蓝色
+                26, 170, 47,  # 绿色
                 255, 255, 255,  # 白色
                 255, 204, 153,  # 浅橙色
                 95, 95, 95,  # 灰色
@@ -207,7 +208,7 @@ def main():
     h.draw(FontManager(size=162), back_car="E", symbol="3", text="一")
     h.draw(FontManager(size=41), back_car="F", symbol="$￥", text="天者甫见\n从夭彳八\n鸟门又双\n艹卌𰀃\n耂")
     h.draw(FontManager(size=41), back_car="G", symbol="%℃°", text="可其至里\n田畀生先\n段九已己\n巴巳扌\n")
-    h.draw(FontManager(size=33), back_car="H", symbol="！", swipe_down="+", text="不青直面平\n圭豆豕止齿\n凹凸光月乂\n角立单亥予\n矛艮忄礻衤\n𡨄吅㠯\n⺝㐅厃")
+    h.draw(FontManager(size=33), back_car="H", symbol="!", swipe_down="+", text="不青直面平\n圭豆豕止齿\n凹凸光月乂\n角立单亥予\n矛艮忄礻衤\n𡨄吅㠯\n⺝㐅厃")
     h.draw(FontManager(size=162), back_car="I", symbol="8", text="丨")
     h.draw(FontManager(size=40), back_car="J", symbol="&", swipe_down="-", text="一夫五丌\n兀瓦韦寸\n业自告勿\n衣半㐄\n亻\n丨丶丿")
     h.draw(FontManager(size=41), back_car="K", symbol="*・", swipe_down="——", text="大正戊弋\n戈戋敖口\n囗片之主\n羊尺爿\n𠮦勹\n戉")

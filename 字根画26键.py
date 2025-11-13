@@ -30,6 +30,13 @@ class Handle:
         keyboard_height = len(keyboard_layout) * (key_height + padding_v) - padding_v + ud * 2  # 上下空白，以适配宽/高=1920/1080
         keyboard_image = Image.new("RGB", (keyboard_width, keyboard_height), (255, 255, 255))
         draw = ImageDraw.Draw(keyboard_image)
+        # 加边框
+        draw.rectangle(
+            xy=[0, 0, keyboard_width, keyboard_height],
+            fill=None,  # 不填充
+            outline=(255, 228, 201),
+            width=30,  # 边框宽度
+        )
         # 加载单键文件
         letter_images = {letter: Image.open(f"C:\\Users\\wangxiao\\Downloads\\{letter}.webp") for letter in key_images}
         y_offset = ud  # 上方有155像素的空白
@@ -62,9 +69,10 @@ class Handle:
             [
                 0, 0, 0,  # 黑色
                 255, 0, 0,  # 红色
-                130, 230, 255,  # 蓝色
+                26, 170, 47,  # 绿色
                 255, 255, 255,  # 白色
                 255, 204, 153,  # 浅橙色
+                255, 228, 201,  # 浅浅橙色
                 95, 95, 95,  # 灰色
                 221, 221, 221,  # 浅灰色
             ]

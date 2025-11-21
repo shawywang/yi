@@ -1,7 +1,8 @@
 # 管理员运行：
-# C:\ProgramData\miniconda3\python.exe -m pip install --upgrade pip
+# python -m pip install --upgrade pip
 # Install-Module PSReadLine -MinimumVersion 2.0.3 -Scope CurrentUser -Force
-# C:\ProgramData\miniconda3\python.exe -m pip install pillow svgelements cairosvg pycairo cairocffi==0.8
+# pip install pillow svgelements cairosvg cairocffi==0.8
+# pycairo用不上
 # 安装字体：98WB-V.otf、98WB-U.otf以查看未显示字根
 import sys
 from typing import Dict, Set

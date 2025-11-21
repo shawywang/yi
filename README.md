@@ -18,7 +18,8 @@
 	3.文件名有【小狼毫】【鼠须管】字样的文件，删掉对应平台的
 	4.重新部署
 	mac注：鼠须管是按ctrl+~，切换方案，注意此快捷键和pinpix截图工具冲突，配置-快捷键/动作-切换贴图组，叉掉；
-	设置皮肤，编辑squirrel.custom.yaml，如加入：style/color_scheme: mac_green
+	设置皮肤，mac编辑squirrel.custom.yaml，win编辑weasel.custom.yaml
+        如：style/color_scheme: mac_green 或 aqua
 
 ## 同文皮肤：
     1.安装仓库内的98WB-U.otf、98WB-V.otf
